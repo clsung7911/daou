@@ -1,0 +1,2245 @@
+<!doctype html>
+<html lang="ko">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=794, initial-scale=1, viewport-fit=cover">
+  <title>이성준 · Daou Tech Portfolio v2</title>
+  <style>
+    @page {
+      size: A4;
+      margin: 0;
+    }
+
+    * {
+      box-sizing: border-box
+    }
+
+    body {
+      margin: 0;
+      font-family: "Noto Sans CJK KR", "Noto Sans KR", sans-serif;
+      color: #13202b;
+      background: #fff
+    }
+
+    .page {
+      width: 210mm;
+      height: 297mm;
+      position: relative;
+      overflow: hidden;
+      page-break-after: always;
+      background: #fff
+    }
+
+    .page:last-child {
+      page-break-after: auto
+    }
+
+    .pad {
+      padding: 16mm 16mm 13mm
+    }
+
+    .footer {
+      position: absolute;
+      left: 16mm;
+      right: 16mm;
+      bottom: 7mm;
+      border-top: 1px solid rgba(12, 27, 42, .12);
+      padding-top: 2.2mm;
+      display: flex;
+      justify-content: space-between;
+      font-size: 8pt;
+      color: #6b7785
+    }
+
+    .kicker {
+      font-size: 8.5pt;
+      letter-spacing: .18em;
+      font-weight: 800;
+      color: #5f6e7c;
+      text-transform: uppercase
+    }
+
+    h1 {
+      font-size: 31pt;
+      line-height: 1.06;
+      letter-spacing: -.04em;
+      margin: 6mm 0 3mm;
+      color: #08111a
+    }
+
+    h2 {
+      font-size: 21pt;
+      line-height: 1.15;
+      letter-spacing: -.03em;
+      margin: 0 0 2mm;
+      color: #0d1720
+    }
+
+    h3 {
+      font-size: 12pt;
+      line-height: 1.3;
+      margin: 0;
+      color: #102030
+    }
+
+    p {
+      font-size: 10.2pt;
+      line-height: 1.62;
+      margin: 0 0 2.6mm;
+      color: #263746
+    }
+
+    .small {
+      font-size: 9pt;
+      line-height: 1.55;
+      color: #425160
+    }
+
+    .muted {
+      color: #6a7885
+    }
+
+    .accent {
+      color: #165dff
+    }
+
+    .subaccent {
+      color: #00a3a3
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, #07111c 0%, #0c1a2f 45%, #12345c 100%)
+    }
+
+    .glow1,
+    .glow2 {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(10px);
+      opacity: .42
+    }
+
+    .glow1 {
+      width: 180mm;
+      height: 180mm;
+      right: -45mm;
+      top: -40mm;
+      background: radial-gradient(circle, rgba(47, 128, 255, .55) 0%, rgba(47, 128, 255, .14) 48%, transparent 72%)
+    }
+
+    .glow2 {
+      width: 130mm;
+      height: 130mm;
+      left: -28mm;
+      bottom: -22mm;
+      background: radial-gradient(circle, rgba(16, 212, 196, .38) 0%, rgba(16, 212, 196, .10) 48%, transparent 72%)
+    }
+
+    .white {
+      color: #fff
+    }
+
+    .softwhite {
+      color: rgba(255, 255, 255, .95)
+    }
+
+    .band {
+      display: inline-block;
+      padding: 1.8mm 4mm;
+      border-radius: 30px;
+      background: rgba(255, 255, 255, .10);
+      border: 1px solid rgba(255, 255, 255, .18);
+      font-size: 8.2pt;
+      font-weight: 700;
+      color: #e8f0ff;
+      margin-right: 2mm;
+      margin-bottom: 2mm
+    }
+
+    .hero-title {
+      position: relative;
+      padding: 16mm 16mm 13mm
+    }
+
+    .hero-title h1 {
+      color: #fff;
+      max-width: 132mm;
+      font-size: 34pt
+    }
+
+    .hero-sub {
+      font-size: 12.4pt;
+      line-height: 1.62;
+      max-width: 142mm;
+      color: rgba(255, 255, 255, .95)
+    }
+
+    .top-right-card {
+      position: absolute;
+      right: 16mm;
+      top: 22mm;
+      width: 52mm;
+      padding: 5mm;
+      border-radius: 12px;
+      background: rgba(7, 16, 28, .24);
+      border: 1px solid rgba(255, 255, 255, .16);
+      backdrop-filter: blur(6px)
+    }
+
+    .top-right-card .label {
+      font-size: 7.8pt;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: #9fb5d6;
+      font-weight: 800
+    }
+
+    .top-right-card .value {
+      font-size: 19pt;
+      font-weight: 900;
+      color: #fff;
+      line-height: 1.05;
+      margin-top: 1mm
+    }
+
+    .grid {
+      display: grid;
+      gap: 4mm
+    }
+
+    .grid2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4mm
+    }
+
+    .grid4 {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 4mm
+    }
+
+    .card {
+      background: #fff;
+      border: 1px solid #e2e8ef;
+      border-radius: 12px;
+      padding: 4.2mm;
+      box-shadow: 0 1.5mm 5mm rgba(5, 18, 34, .04)
+    }
+
+    .card.dark {
+      background: linear-gradient(180deg, #0e2138, #112e50);
+      border: 0;
+      color: #fff;
+      box-shadow: none
+    }
+
+    .card.tinted {
+      background: linear-gradient(180deg, #f5f9ff, #eff6ff);
+      border: 1px solid #d9e8ff
+    }
+
+    .card.teal {
+      background: linear-gradient(180deg, #effcfb, #e7f8f8);
+      border: 1px solid #cceeed
+    }
+
+    .label {
+      font-size: 8pt;
+      font-weight: 800;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: #6b7a89;
+      margin-bottom: 1.2mm
+    }
+
+    .dark .label {
+      color: #9db6d5
+    }
+
+    .big-number {
+      font-size: 26pt;
+      font-weight: 900;
+      line-height: .95;
+      color: #165dff
+    }
+
+    .big-number.white {
+      color: #fff
+    }
+
+    .case-pill {
+      display: inline-block;
+      border-radius: 999px;
+      padding: 1.4mm 3.2mm;
+      background: #eef4ff;
+      color: #2452a3;
+      font-size: 8.1pt;
+      font-weight: 800;
+      margin-right: 1.5mm;
+      margin-bottom: 1.5mm
+    }
+
+    .timeline {
+      display: flex;
+      align-items: stretch;
+      gap: 3mm;
+      margin-top: 3mm
+    }
+
+    .step {
+      flex: 1;
+      border-radius: 10px;
+      padding: 3.5mm;
+      background: #f6f8fb;
+      border: 1px solid #e5ebf1;
+      position: relative
+    }
+
+    .step .n {
+      position: absolute;
+      top: 2.5mm;
+      right: 3mm;
+      font-size: 18pt;
+      font-weight: 900;
+      color: #dbe4ee;
+      line-height: 1
+    }
+
+    .step h4 {
+      margin: 0 0 1.5mm;
+      font-size: 10.2pt;
+      line-height: 1.3;
+      color: #112132
+    }
+
+    .step p {
+      font-size: 8.9pt;
+      line-height: 1.5;
+      margin: 0;
+      color: #465565
+    }
+
+    .metric-strip {
+      display: grid;
+      grid-template-columns: 1.1fr 1fr 1fr 1fr;
+      gap: 3mm;
+      margin: 4mm 0 5mm
+    }
+
+    .metric {
+      border-radius: 11px;
+      padding: 4mm;
+      background: #f8fbff;
+      border: 1px solid #e2ecfb
+    }
+
+    .metric strong {
+      display: block;
+      font-size: 22pt;
+      line-height: 1;
+      color: #165dff;
+      margin-top: 1mm
+    }
+
+    .metric.dark {
+      background: linear-gradient(180deg, #0f2642, #12365d);
+      border: 0
+    }
+
+    .metric.dark strong,
+    .metric.dark .small,
+    .metric.dark .label {
+      color: #fff
+    }
+
+    .split {
+      display: grid;
+      grid-template-columns: 66mm 1fr;
+      gap: 5mm
+    }
+
+    .sidebar {
+      background: linear-gradient(180deg, #0e2036, #12365b);
+      color: #fff;
+      border-radius: 14px;
+      padding: 5mm
+    }
+
+    .sidebar p {
+      color: rgba(255, 255, 255, .96)
+    }
+
+    .sidebar .small {
+      color: rgba(255, 255, 255, .96)
+    }
+
+    .side-stat {
+      padding: 3.2mm 0;
+      border-top: 1px solid rgba(255, 255, 255, .14)
+    }
+
+    .side-stat:first-child {
+      border-top: 0;
+      padding-top: 0
+    }
+
+    .side-stat .num {
+      font-size: 24pt;
+      font-weight: 900;
+      line-height: .95
+    }
+
+    .side-stat .txt {
+      font-size: 8.6pt;
+      line-height: 1.45;
+      color: #d3deea
+    }
+
+    .callout {
+      border-left: 4px solid #165dff;
+      padding-left: 4mm;
+      font-size: 12pt;
+      line-height: 1.5;
+      font-weight: 800;
+      color: #142432;
+      margin: 0 0 10mm
+    }
+
+    .columns {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4mm
+    }
+
+    .box {
+      border-radius: 12px;
+      padding: 4mm;
+      border: 1px solid #e3eaf1;
+      background: #fff
+    }
+
+    .box h4 {
+      margin: 0 0 1.5mm;
+      font-size: 10.4pt;
+      color: #102030
+    }
+
+    .box ul {
+      margin: 0;
+      padding-left: 4.5mm
+    }
+
+    .box li {
+      font-size: 9pt;
+      line-height: 1.52;
+      color: #314251;
+      margin-bottom: 1.4mm
+    }
+
+    .process {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 3mm;
+      margin-top: 4mm
+    }
+
+    .process .node {
+      background: linear-gradient(180deg, #f7fbff, #eff5fc);
+      border: 1px solid #dde8f4;
+      border-radius: 12px;
+      padding: 3.7mm;
+      min-height: 27mm
+    }
+
+    .process .node .ix {
+      font-size: 18pt;
+      font-weight: 900;
+      color: #d0dded;
+      line-height: 1
+    }
+
+    .process .node h5 {
+      margin: 1mm 0 1mm;
+      font-size: 10pt;
+      color: #112132
+    }
+
+    .process .node p {
+      font-size: 8.7pt;
+      line-height: 1.46;
+      color: #43505c;
+      margin: 0
+    }
+
+    .impact {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 3mm;
+      margin-top: 4mm
+    }
+
+    .impact .item {
+      border-radius: 12px;
+      padding: 4mm;
+      background: linear-gradient(180deg, #fbfdff, #f2f7fd);
+      border: 1px solid #e0e9f3
+    }
+
+    .impact .item strong {
+      display: block;
+      font-size: 15pt;
+      line-height: 1.05;
+      color: #165dff
+    }
+
+    .impact .item .small {
+      margin-top: 1.2mm
+    }
+
+    .quote-block {
+      padding: 5mm;
+      border-radius: 14px;
+      background: linear-gradient(180deg, #f5f9ff, #edf4ff);
+      border: 1px solid #dae8ff;
+      margin-top: 30px;
+      margin-bottom: 30px;
+    }
+
+    .quote-block .title {
+      font-size: 11pt;
+      font-weight: 800;
+      color: #17365f;
+      margin-bottom: 1.4mm
+    }
+
+    .quote-block p {
+      font-size: 10pt;
+      line-height: 1.58;
+      color: #27415f
+    }
+
+    .center-band {
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 118mm;
+      height: 36mm;
+      background: linear-gradient(90deg, #0f2642, #174a80)
+    }
+
+    .index-row {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 4mm;
+      margin-top: 8mm
+    }
+
+    .index-card {
+      padding: 4.2mm;
+      border-radius: 12px;
+      background: rgba(255, 255, 255, .07);
+      border: 1px solid rgba(255, 255, 255, .14)
+    }
+
+    .index-card h4 {
+      margin: 0 0 1.2mm;
+      font-size: 10.2pt;
+      color: #fff
+    }
+
+    .index-card p {
+      font-size: 8.8pt;
+      line-height: 1.45;
+      color: rgba(255, 255, 255, .94);
+      margin: 0
+    }
+
+    .ribbon {
+      position: absolute;
+      right: -22mm;
+      top: 26mm;
+      transform: rotate(35deg);
+      background: #14c9bb;
+      color: #07202b;
+      padding: 2.2mm 28mm;
+      font-size: 8pt;
+      font-weight: 900;
+      letter-spacing: .12em
+    }
+
+    .mini-bars {
+      display: flex;
+      gap: 1.4mm;
+      align-items: flex-end;
+      height: 18mm;
+      margin-top: 2mm
+    }
+
+    .mini-bars span {
+      display: block;
+      width: 7mm;
+      border-radius: 3px 3px 0 0;
+      background: linear-gradient(180deg, #2c86ff, #165dff)
+    }
+
+    .summary-grid {
+      display: grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 5mm
+    }
+
+    .score-cards {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4mm
+    }
+
+    .score {
+      border-radius: 12px;
+      padding: 4.5mm;
+      background: #f7fafc;
+      border: 1px solid #e2eaf1
+    }
+
+    .score h4 {
+      margin: 0 0 1mm;
+      font-size: 10.2pt;
+      color: #102030
+    }
+
+    .score p {
+      font-size: 8.9pt;
+      line-height: 1.5;
+      color: #465463;
+      margin: 0
+    }
+
+    .list-plain {
+      margin: 0;
+      padding-left: 4mm
+    }
+
+    .list-plain li {
+      margin-bottom: 1.5mm;
+      font-size: 9pt;
+      line-height: 1.48;
+      color: #314151
+    }
+
+    /* =========================================================
+   V3 — Browser-safe + Print-safe layout
+   ---------------------------------------------------------
+   Screen: 문서 카드처럼 중앙 정렬, 내용 잘림 방지
+   Print : 기존 A4 210 x 297mm 레이아웃 유지
+   ========================================================= */
+
+    :root {
+      --ink: #0b1722;
+      --body: #1d3345;
+      --body-soft: #334b5e;
+      --muted: #53697b;
+      --line: #dbe4ec;
+      --accent: #0d5bd7;
+      --accent-soft: #eaf2ff;
+      --dark: #0d2239;
+      --dark-2: #133b64;
+    }
+
+    html {
+      background: #eaf0f6;
+      -webkit-text-size-adjust: 100%;
+      text-size-adjust: 100%;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Pretendard", "Noto Sans KR", "Noto Sans CJK KR", "Malgun Gothic", Arial, sans-serif;
+      color: var(--ink);
+      background: #eaf0f6;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    p,
+    li,
+    .small,
+    .label,
+    .side-stat .txt,
+    .index-card p,
+    .metric,
+    .item {
+      word-break: keep-all;
+      overflow-wrap: break-word;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5 {
+      text-wrap: balance;
+    }
+
+    p,
+    li,
+    .small {
+      text-wrap: pretty;
+    }
+
+    p {
+      color: var(--body);
+    }
+
+    .small {
+      color: var(--body-soft);
+    }
+
+    .muted {
+      color: var(--muted);
+    }
+
+    .label {
+      color: #4e6375;
+    }
+
+    /* 브라우저에서는 콘텐츠가 잘리지 않도록 높이를 유동적으로 사용 */
+    .page {
+      width: min(210mm, calc(100vw - 40px));
+      min-height: 297mm;
+      height: auto;
+      margin: 24px auto;
+      overflow: visible;
+      background: #fff;
+      box-shadow: 0 10px 34px rgba(16, 34, 52, .12);
+      border-radius: 2px;
+      page-break-after: auto;
+    }
+
+    .pad {
+      padding: 16mm 16mm 20mm;
+    }
+
+    /* 고정 폭 grid에서 긴 텍스트가 밀어내지 않도록 minmax(0,1fr) 적용 */
+    .grid2 {
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    }
+
+    .grid4 {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+
+    .columns {
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    }
+
+    .summary-grid {
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, .9fr);
+    }
+
+    .score-cards {
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    }
+
+    .metric-strip {
+      grid-template-columns: minmax(0, 1.1fr) repeat(3, minmax(0, 1fr));
+    }
+
+    .impact {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .process {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+
+    .split {
+      grid-template-columns: minmax(180px, 66mm) minmax(0, 1fr);
+    }
+
+    /* 긴 영문 기술명도 레이아웃을 밀어내지 않도록 */
+    .band,
+    .case-pill,
+    .meta span,
+    .node,
+    .step,
+    .card,
+    .box,
+    .metric,
+    .item {
+      min-width: 0;
+    }
+
+    .card,
+    .box,
+    .step,
+    .metric,
+    .impact .item,
+    .quote-block {
+      overflow-wrap: anywhere;
+    }
+
+    /* 라이트 배경 텍스트 대비 강화 */
+    .card p,
+    .box p,
+    .step p,
+    .metric .small,
+    .impact .small,
+    .score p,
+    .process .node p,
+    .index-card p {
+      color: #2f4558;
+    }
+
+    .callout {
+      color: #0f2638;
+    }
+
+    .quote-block p {
+      color: #1f3a53;
+    }
+
+    .list-plain li,
+    .box li {
+      color: #243c4f;
+    }
+
+    /* 다크 배경 텍스트는 확실하게 밝게 */
+    .card.dark,
+    .sidebar {
+      background: linear-gradient(180deg, var(--dark), var(--dark-2));
+    }
+
+    .card.dark p,
+    .card.dark .small,
+    .card.dark li,
+    .sidebar p,
+    .sidebar .small,
+    .sidebar li,
+    .side-stat .txt {
+      color: #f1f6fb !important;
+    }
+
+    .card.dark .label,
+    .sidebar .label {
+      color: #c4d6e8 !important;
+    }
+
+    .card.dark h3,
+    .card.dark h4 {
+      color: #fff !important;
+    }
+
+    .metric.dark .small {
+      color: #eef5fc !important;
+    }
+
+    /* footer가 본문과 겹치지 않도록 */
+    .footer {
+      color: #516476;
+    }
+
+    /* 작은 화면에서도 HTML이 깨지지 않게 */
+    @media screen and (max-width: 960px) {
+      .page {
+        width: calc(100vw - 24px);
+        min-height: auto;
+        margin: 12px auto;
+        border-radius: 10px;
+      }
+
+      .pad {
+        padding: 26px 24px 70px;
+      }
+
+      .footer {
+        left: 24px;
+        right: 24px;
+        bottom: 18px;
+      }
+
+      .grid2,
+      .grid4,
+      .columns,
+      .summary-grid,
+      .score-cards,
+      .split {
+        grid-template-columns: 1fr !important;
+      }
+
+      .metric-strip,
+      .impact,
+      .process {
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+      }
+
+      .timeline {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+
+      h1 {
+        font-size: clamp(30px, 7vw, 46px) !important;
+      }
+
+      h2 {
+        font-size: clamp(25px, 5.8vw, 34px) !important;
+      }
+
+      .sidebar {
+        margin-bottom: 2px;
+      }
+    }
+
+    @media screen and (max-width: 620px) {
+
+      .metric-strip,
+      .impact,
+      .process,
+      .timeline {
+        grid-template-columns: 1fr !important;
+      }
+
+      .page {
+        width: calc(100vw - 16px);
+        margin: 8px auto;
+      }
+
+      .pad {
+        padding: 22px 18px 66px;
+      }
+
+      .footer {
+        left: 18px;
+        right: 18px;
+      }
+
+      .metric strong,
+      .big-number {
+        font-size: 20pt;
+      }
+    }
+
+    /* 실제 PDF/인쇄에서는 정확한 A4 고정 레이아웃 복원 */
+    @media print {
+
+      html,
+      body {
+        width: 210mm;
+        background: #fff;
+      }
+
+      body {
+        margin: 0;
+      }
+
+      .page {
+        width: 210mm;
+        height: 297mm;
+        min-height: 297mm;
+        margin: 0;
+        overflow: hidden;
+        box-shadow: none;
+        border-radius: 0;
+        page-break-after: always;
+        break-after: page;
+      }
+
+      .page:last-child {
+        page-break-after: auto;
+        break-after: auto;
+      }
+
+      .pad {
+        padding: 16mm 16mm 13mm;
+      }
+
+      * {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+    }
+
+
+    /* =========================================================
+   V4 FIX — stacking + desktop layout + readable text
+   ========================================================= */
+
+    /* 핵심 버그 수정:
+   첫 페이지의 absolute 배경이 일반 flow 본문 위를 덮지 않도록 본문을
+   명시적으로 상위 stacking layer에 둔다. */
+    .page>.pad {
+      position: relative !important;
+      z-index: 10 !important;
+    }
+
+    .page>.footer {
+      z-index: 20 !important;
+    }
+
+    /* 데스크톱 HTML은 PDF와 동일한 A4 비율/멀티컬럼을 유지한다. */
+    @media screen and (min-width: 721px) {
+      .page {
+        width: 794px !important;
+        max-width: calc(100vw - 40px) !important;
+        min-height: 1123px !important;
+        height: auto !important;
+        margin: 24px auto !important;
+        overflow: visible !important;
+      }
+
+      .pad {
+        padding: 60px 60px 76px !important;
+      }
+
+      .footer {
+        left: 60px !important;
+        right: 60px !important;
+        bottom: 26px !important;
+      }
+
+      /* 기존 960px 미디어쿼리에서 무너뜨린 컬럼을 복원 */
+      .grid2 {
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) !important;
+      }
+
+      .grid4 {
+        grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+      }
+
+      .columns {
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) !important;
+      }
+
+      .summary-grid {
+        grid-template-columns: minmax(0, 1.1fr) minmax(0, .9fr) !important;
+      }
+
+      .score-cards {
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) !important;
+      }
+
+      .split {
+        grid-template-columns: 250px minmax(0, 1fr) !important;
+      }
+
+      .metric-strip {
+        grid-template-columns: minmax(0, 1.1fr) repeat(3, minmax(0, 1fr)) !important;
+      }
+
+      .impact {
+        grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+      }
+
+      .process {
+        grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+      }
+
+      .timeline {
+        display: flex !important;
+      }
+
+      /* v3의 viewport용 과대 폰트 보정 해제 */
+      h1 {
+        font-size: 31pt !important;
+      }
+
+      h2 {
+        font-size: 21pt !important;
+      }
+    }
+
+    /* 첫 페이지 전용 타이틀은 원래 의도한 크기를 유지 */
+    .page:first-of-type h1 {
+      font-size: 34pt !important;
+    }
+
+    /* 밝은 배경 가독성 강화 */
+    p {
+      color: #20384b !important;
+    }
+
+    .small {
+      color: #344d61 !important;
+      margin-top: 10px;
+    }
+
+    .label {
+      color: #52677a !important;
+    }
+
+    .step p,
+    .process .node p,
+    .score p,
+    .index-card p,
+    .box li,
+    .list-plain li {
+      color: #294357 !important;
+    }
+
+    /* 파란/남색 영역은 반대로 밝게 */
+    .card.dark p,
+    .card.dark .small,
+    .card.dark li,
+    .metric.dark p,
+    .metric.dark .small,
+    .sidebar p,
+    .sidebar .small,
+    .sidebar li,
+    .sidebar .side-stat .txt {
+      color: #f5f9fd !important;
+    }
+
+    .card.dark .label,
+    .metric.dark .label,
+    .sidebar .label {
+      color: #c7daf0 !important;
+    }
+
+    /* 첫 페이지 파란 설명 띠 안의 글자 */
+    .page:first-of-type .card>div[style*="background:linear-gradient(90deg"] {
+      color: #fff !important;
+    }
+
+    /* 한국어 줄바꿈 */
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    p,
+    li,
+    .small,
+    .label {
+      word-break: keep-all !important;
+      overflow-wrap: break-word !important;
+    }
+
+    /* 정말 작은 화면에서만 단일 컬럼으로 변경 */
+    @media screen and (max-width:720px) {
+      .page {
+        width: calc(100vw - 16px) !important;
+        max-width: none !important;
+        min-height: auto !important;
+        margin: 8px auto !important;
+      }
+
+      .pad {
+        padding: 24px 20px 66px !important;
+      }
+
+      .footer {
+        left: 20px !important;
+        right: 20px !important;
+        bottom: 18px !important;
+      }
+
+      .grid,
+      .grid2,
+      .grid4,
+      .columns,
+      .summary-grid,
+      .score-cards,
+      .split,
+      .metric-strip,
+      .impact,
+      .process {
+        grid-template-columns: 1fr !important;
+      }
+
+      .timeline {
+        display: grid !important;
+        grid-template-columns: 1fr !important;
+      }
+
+      .page:first-of-type h1,
+      h1 {
+        font-size: 30px !important;
+      }
+
+      h2 {
+        font-size: 26px !important;
+      }
+    }
+
+    /* 인쇄/PDF에서는 A4 고정 */
+    @media print {
+      .page {
+        width: 210mm !important;
+        height: 297mm !important;
+        min-height: 297mm !important;
+        margin: 0 !important;
+        overflow: hidden !important;
+      }
+
+      .pad {
+        padding: 16mm 16mm 13mm !important;
+      }
+
+      .footer {
+        left: 16mm !important;
+        right: 16mm !important;
+        bottom: 7mm !important;
+      }
+
+      .page>.pad {
+        position: relative !important;
+        z-index: 10 !important;
+      }
+    }
+  
+
+    /* =========================================================
+       PAGE 04 / 05 REDESIGN — scoped, print-safe
+       ========================================================= */
+
+    .case03-page,
+    .case04-page {
+      position: relative;
+    }
+
+    .case03-page::before,
+    .case04-page::before {
+      content: "";
+      position: absolute;
+      width: 58mm;
+      height: 58mm;
+      right: -20mm;
+      bottom: 28mm;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(22, 93, 255, .055) 0%, rgba(22, 93, 255, .025) 48%, transparent 72%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .case03-page > *:not(.footer),
+    .case04-page > *:not(.footer) {
+      position: relative;
+      z-index: 1;
+    }
+
+    /* CASE 03 / 04 footer: 다른 페이지와 동일하게 A4 하단 고정 */
+    .case03-page > .footer,
+    .case04-page > .footer {
+      position: absolute !important;
+      left: 16mm !important;
+      right: 16mm !important;
+      bottom: 7mm !important;
+      z-index: 20 !important;
+    }
+
+    /* CASE 03 — full-width message -> capability grid + role card -> boundary */
+    .case03-page h2 {
+      max-width: 166mm;
+      margin-bottom: 0;
+    }
+
+    .case03-callout {
+      margin: 8mm 0 5mm !important;
+      padding: 4.5mm 5mm;
+      border-left: 4px solid #165dff;
+      border-radius: 0 12px 12px 0;
+      background: linear-gradient(90deg, #f5f9ff 0%, #fbfdff 100%);
+      font-size: 11.6pt;
+      line-height: 1.52;
+    }
+
+    .case03-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1.16fr) minmax(0, .84fr);
+      gap: 5mm;
+      align-items: stretch;
+    }
+
+    .case03-capabilities {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 4mm;
+    }
+
+    .case03-capabilities .card {
+      min-height: 39mm;
+      padding: 4.6mm;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      box-shadow: 0 1mm 4mm rgba(5, 18, 34, .035);
+    }
+
+    .case03-capabilities .card h3 {
+      font-size: 12pt;
+      margin-bottom: 1.8mm;
+    }
+
+    .case03-capabilities .card .small {
+      margin-top: 1mm;
+    }
+
+    .case03-role {
+      min-height: 82mm !important;
+      padding: 6mm !important;
+      border-radius: 15px !important;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+
+    .case03-role::after {
+      content: "";
+      position: absolute;
+      right: -12mm;
+      top: -10mm;
+      width: 52mm;
+      height: 52mm;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(68, 139, 255, .28), transparent 70%);
+      pointer-events: none;
+    }
+
+    .case03-role h3 {
+      font-size: 19pt !important;
+      line-height: 1.18;
+      margin: 1mm 0 3mm !important;
+    }
+
+    .case03-role .mini-bars {
+      margin: 5mm 0 2mm;
+    }
+
+    .case03-role .role-note {
+      margin-top: auto !important;
+      padding-top: 4mm;
+      border-top: 1px solid rgba(255,255,255,.15);
+    }
+
+    .case03-boundary {
+      margin-top: 5mm;
+      padding: 4.5mm 5mm !important;
+      display: grid;
+      grid-template-columns: 34mm minmax(0, 1fr);
+      gap: 4mm;
+      align-items: start;
+      border-radius: 13px !important;
+    }
+
+    .case03-boundary .label {
+      margin-top: .5mm;
+    }
+
+    .case03-boundary .small {
+      margin: 0 !important;
+    }
+
+    /* CASE 04 — wider bootstrap area + 2x2 sequence; avoids 4 skinny columns */
+    .case04-page h2 {
+      max-width: 150mm;
+      margin-bottom: 6mm;
+    }
+
+    .case04-hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, .92fr) minmax(0, 1.28fr);
+      gap: 5mm;
+      align-items: stretch;
+    }
+
+    .case04-overview {
+      min-height: 86mm !important;
+      padding: 6mm !important;
+      border-radius: 15px !important;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .case04-overview h3 {
+      font-size: 18pt !important;
+      line-height: 1.2;
+      margin: 1mm 0 3mm !important;
+    }
+
+    .case04-overview .tech-bands {
+      margin-top: auto !important;
+      padding-top: 5mm;
+    }
+
+    .case04-flow-card {
+      min-height: 86mm;
+      padding: 5mm !important;
+      border-radius: 15px !important;
+      background: linear-gradient(180deg, #ffffff 0%, #fbfdff 100%);
+    }
+
+    .case04-flow-card > .label {
+      margin-bottom: 3mm;
+    }
+
+    .case04-flow {
+      display: grid !important;
+      grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+      gap: 3mm !important;
+      margin-top: 0 !important;
+    }
+
+    .case04-flow .node {
+      min-height: 34mm !important;
+      padding: 4mm !important;
+      border-radius: 11px;
+      background: linear-gradient(180deg, #f7fbff 0%, #eef5fd 100%);
+      border: 1px solid #dce8f5;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .case04-flow .node .ix {
+      position: absolute;
+      right: 3.5mm;
+      top: 3mm;
+      font-size: 19pt;
+      color: #d6e3f2;
+    }
+
+    .case04-flow .node h5 {
+      max-width: calc(100% - 10mm);
+      margin: 0 0 2mm;
+      font-size: 10pt;
+      line-height: 1.28;
+      word-break: normal !important;
+      overflow-wrap: normal !important;
+    }
+
+    .case04-flow .node p {
+      font-size: 8.8pt;
+      line-height: 1.45;
+      word-break: keep-all !important;
+      overflow-wrap: break-word !important;
+    }
+
+    .case04-impact {
+      margin-top: 5mm !important;
+      gap: 4mm !important;
+    }
+
+    .case04-impact .item {
+      min-height: 42mm;
+      padding: 4.5mm !important;
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(180deg, #fbfdff 0%, #f3f8fe 100%);
+    }
+
+    .case04-impact .item::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 3px;
+      background: #165dff;
+    }
+
+    .case04-impact .item strong {
+      font-size: 16pt;
+      margin-bottom: 1.5mm;
+    }
+
+    .case04-impact .item .small {
+      margin-top: 0;
+    }
+
+
+
+    /* CASE 01 — impact cards wider and better balanced */
+    .case01-impact {
+      margin-top: 5mm !important;
+      grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+      gap: 3mm !important;
+    }
+
+    .case01-impact .item {
+      min-height: 34mm;
+    }
+
+    .case01-impact .item:last-child {
+      grid-column: auto;
+    }
+
+    /* CASE 04 — bootstrap flow fills the card more intentionally */
+    .case04-flow-card {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .case04-flow {
+      flex: 1 1 auto;
+      align-content: start;
+    }
+
+    .case04-flow .node {
+      min-height: 37mm !important;
+    }
+
+    .case04-flow-note {
+      margin-top: 3.5mm;
+      padding: 3.6mm 4mm;
+      border-radius: 12px;
+      background: linear-gradient(180deg, #f8fbff 0%, #eff5fd 100%);
+      border: 1px solid #dce8f5;
+    }
+
+    .case04-flow-note .title {
+      font-size: 8.4pt;
+      font-weight: 800;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: #5b7082;
+      margin-bottom: 1.8mm;
+    }
+
+    .case04-flow-note .points {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 2.2mm 3mm;
+    }
+
+    .case04-flow-note .point {
+      font-size: 8.8pt;
+      line-height: 1.42;
+      color: #31495d;
+      min-width: 0;
+    }
+
+    .case04-flow-note .point b {
+      color: #0f2740;
+    }
+
+    @media screen and (max-width: 720px) {
+      .case03-layout,
+      .case04-hero-grid,
+      .case03-boundary {
+        grid-template-columns: 1fr !important;
+      }
+
+      .case01-impact {
+        grid-template-columns: 1fr !important;
+      }
+
+      .case01-impact .item:last-child {
+        grid-column: auto !important;
+      }
+
+      .case04-flow-note .points {
+        grid-template-columns: 1fr !important;
+      }
+
+      .case03-capabilities,
+      .case04-flow {
+        grid-template-columns: 1fr !important;
+      }
+
+      .case03-role,
+      .case04-overview,
+      .case04-flow-card {
+        min-height: auto !important;
+      }
+    }
+
+    @media print {
+      .case03-layout {
+        grid-template-columns: minmax(0, 1.16fr) minmax(0, .84fr) !important;
+      }
+
+      .case03-capabilities {
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+      }
+
+      .case04-hero-grid {
+        grid-template-columns: minmax(0, .92fr) minmax(0, 1.28fr) !important;
+      }
+
+      .case04-flow {
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+      }
+
+      .case03-boundary {
+        grid-template-columns: 34mm minmax(0, 1fr) !important;
+      }
+    }
+
+    /* ===== HARD FIX: CASE 03 / 04 footer anchoring ===== */
+    @media screen and (min-width: 721px) {
+      .case03-page,
+      .case04-page {
+        height: 1123px !important;
+        min-height: 1123px !important;
+        overflow: hidden !important;
+      }
+    }
+
+    @media print {
+      .case03-page,
+      .case04-page {
+        height: 297mm !important;
+        min-height: 297mm !important;
+        overflow: hidden !important;
+      }
+    }
+
+    .case03-page > .footer,
+    .case04-page > .footer {
+      position: absolute !important;
+      left: 16mm !important;
+      right: 16mm !important;
+      bottom: 7mm !important;
+      margin: 0 !important;
+      transform: none !important;
+      z-index: 999 !important;
+    }
+
+    /* =========================================================
+       iOS/PDF SAFE — remove unintended gray compositing blocks
+       Gray slabs seen in iOS PDF preview were caused by translucent
+       card shadows being rasterized/composited as large rectangles.
+       Keep card fills/borders, remove only shadow/compositing effects.
+       ========================================================= */
+    .card,
+    .case03-capabilities .card,
+    .case04-flow-card {
+      box-shadow: none !important;
+    }
+
+    @media print {
+      .card,
+      .case03-capabilities .card,
+      .case04-flow-card {
+        box-shadow: none !important;
+      }
+    }
+
+
+    /* =========================================================
+       FIXED A4 PREVIEW — non-responsive GitHub/web version
+       794 x 1123 px per page, preserving the desktop composition.
+       Mobile browsers scale the whole page instead of reflowing it.
+       ========================================================= */
+    html,
+    body {
+      min-width: 794px !important;
+      width: 100% !important;
+      background: #eaf0f6 !important;
+    }
+
+    body {
+      overflow-x: auto !important;
+    }
+
+    .page {
+      width: 794px !important;
+      min-width: 794px !important;
+      max-width: 794px !important;
+      height: 1123px !important;
+      min-height: 1123px !important;
+      max-height: 1123px !important;
+      margin: 24px auto !important;
+      overflow: hidden !important;
+      border-radius: 2px !important;
+      box-shadow: 0 10px 34px rgba(16, 34, 52, .12) !important;
+      page-break-after: auto !important;
+      break-after: auto !important;
+    }
+
+    .pad {
+      padding: 60px 60px 76px !important;
+    }
+
+    .footer {
+      position: absolute !important;
+      left: 60px !important;
+      right: 60px !important;
+      bottom: 26px !important;
+    }
+
+    /* lock all desktop grids so they never collapse on small screens */
+    .grid2 {
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) !important;
+    }
+
+    .grid4 {
+      grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+    }
+
+    .columns {
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) !important;
+    }
+
+    .summary-grid {
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, .9fr) !important;
+    }
+
+    .score-cards {
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) !important;
+    }
+
+    .split {
+      grid-template-columns: 250px minmax(0, 1fr) !important;
+    }
+
+    .metric-strip {
+      grid-template-columns: minmax(0, 1.1fr) repeat(3, minmax(0, 1fr)) !important;
+    }
+
+    .impact {
+      grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+    }
+
+    .process {
+      grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+    }
+
+    .timeline {
+      display: flex !important;
+    }
+
+    .case03-layout {
+      grid-template-columns: minmax(0, 1.16fr) minmax(0, .84fr) !important;
+    }
+
+    .case03-capabilities {
+      grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    }
+
+    .case03-boundary {
+      grid-template-columns: 34mm minmax(0, 1fr) !important;
+    }
+
+    .case04-hero-grid {
+      grid-template-columns: minmax(0, .92fr) minmax(0, 1.28fr) !important;
+    }
+
+    .case04-flow,
+    .case04-flow-note .points {
+      grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    }
+
+    .case01-impact {
+      grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+    }
+
+    /* Keep original desktop typography at every viewport size */
+    h1 {
+      font-size: 31pt !important;
+    }
+
+    h2 {
+      font-size: 21pt !important;
+    }
+
+    .page:first-of-type h1 {
+      font-size: 34pt !important;
+    }
+
+    /* print remains true A4 */
+    @media print {
+      html,
+      body {
+        min-width: 210mm !important;
+        width: 210mm !important;
+        background: #fff !important;
+      }
+
+      .page {
+        width: 210mm !important;
+        min-width: 210mm !important;
+        max-width: 210mm !important;
+        height: 297mm !important;
+        min-height: 297mm !important;
+        max-height: 297mm !important;
+        margin: 0 !important;
+        box-shadow: none !important;
+        border-radius: 0 !important;
+        page-break-after: always !important;
+        break-after: page !important;
+      }
+
+      .page:last-child {
+        page-break-after: auto !important;
+        break-after: auto !important;
+      }
+
+      .pad {
+        padding: 16mm 16mm 13mm !important;
+      }
+
+      .footer {
+        left: 16mm !important;
+        right: 16mm !important;
+        bottom: 7mm !important;
+      }
+    }
+
+  
+
+    /* FINAL PAGE — align left/right content bottoms */
+    .final-summary-grid {
+      align-items: stretch !important;
+    }
+
+    .final-summary-left {
+      display: flex !important;
+      flex-direction: column !important;
+      min-height: 0;
+    }
+
+    .final-summary-left .score-cards {
+      flex: 0 0 auto;
+    }
+
+    .final-summary-left .quote-block {
+      flex: 1 1 auto;
+      margin-bottom: 0 !important;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .final-summary-right {
+      display: flex !important;
+      min-height: 0;
+    }
+
+    .final-summary-right > .card.dark {
+      width: 100%;
+      height: 100% !important;
+      min-height: 0 !important;
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <section class="page">
+    <div style="position:absolute; inset:0; background:linear-gradient(180deg,#f9fbff 0%,#f4f8fd 100%)"></div>
+    <div
+      style="position:absolute; right:-18mm; top:-18mm; width:110mm; height:110mm; border-radius:50%; background:radial-gradient(circle, rgba(22,93,255,.15) 0%, rgba(22,93,255,.06) 45%, transparent 72%)">
+    </div>
+    <div
+      style="position:absolute; left:-25mm; bottom:-20mm; width:90mm; height:90mm; border-radius:50%; background:radial-gradient(circle, rgba(20,201,187,.16) 0%, rgba(20,201,187,.07) 45%, transparent 72%)">
+    </div>
+    <div class="pad" style="padding-bottom:10mm">
+      <div class="kicker">Daou Tech · Web Application PM/PL Portfolio</div>
+      <div class="grid" style="grid-template-columns:1.15fr .85fr; gap:6mm; margin-top:6mm">
+        <div>
+          <h1 style="font-size:34pt; max-width:118mm">경력기술서가 아닌,<br><span class="accent">판단과 구조</span>를<br>보여주는 포트폴리오
+          </h1>
+          <p style="font-size:12pt; line-height:1.68; max-width:118mm; color:#334354">저는 요구사항을 시스템 구조로 번역하고, 직접 구현과 리딩의
+            경계를 정해 팀이 실제 서비스까지 갈 수 있도록 만드는 <b>Hands-on Technical PL</b>입니다.</p>
+          <div style="margin-top:6mm">
+            <span class="case-pill">Enterprise Backend</span>
+            <span class="case-pill">Technical PL</span>
+            <span class="case-pill">Full-cycle Delivery</span>
+            <span class="case-pill">R&D / PoC</span>
+          </div>
+        </div>
+        <div>
+          <div class="card dark"
+            style="min-height:62mm; border-radius:16px; padding:6mm; position:relative; overflow:hidden">
+            <div
+              style="position:absolute; right:-10mm; top:-10mm; width:46mm; height:46mm; background:radial-gradient(circle, rgba(118,168,255,.35), transparent 70%)">
+            </div>
+            <div class="label">Positioning</div>
+            <div style="font-size:27pt; line-height:1.05; font-weight:900; color:#fff">8년+<br>기술 리딩</div>
+            <p class="small" style="margin-top:3mm">업무시스템 구축, 인계 시스템 내재화, 신규 SaaS, Kubernetes PoC까지 수행</p>
+            <div style="margin-top:4mm; padding-top:3mm; border-top:1px solid rgba(255,255,255,.14)">
+              <div class="small">현 포지셔닝 · <b>Backend Engineer / Technical PL</b></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="metric-strip" style="margin-top:8mm">
+        <div class="metric dark">
+          <div class="label">Key Role</div><strong>PL</strong>
+          <div class="small">설계와 구현 경계를 정하는 역할</div>
+        </div>
+        <div class="metric">
+          <div class="label">Focus</div><strong>22일</strong>
+          <div class="small">기본 배포 체계 재구축</div>
+        </div>
+        <div class="metric">
+          <div class="label">Spread</div><strong>8센터</strong>
+          <div class="small">전국 확산 운영</div>
+        </div>
+        <div class="metric">
+          <div class="label">PoC</div><strong>4서버</strong>
+          <div class="small">K8s GitOps 기반 구성</div>
+        </div>
+      </div>
+
+      <div class="card" style="margin-top:5mm; padding:0; overflow:hidden; border-radius:16px">
+        <div
+          style="background:linear-gradient(90deg,#0f2642,#174a80); color:#fff; padding:4mm 5mm; font-size:10.5pt; font-weight:800">
+          이번 포트폴리오는 단순 프로젝트 나열보다, <span style="color:#a8c8ff">어떤 문제를 어떻게 판단하고 구조화했는지</span>를 보여주는 데 초점을 맞췄습니다.</div>
+        <div class="grid4" style="padding:5mm">
+          <div class="card tinted" style="margin:0">
+            <div class="label">CASE 01</div>
+            <h3>FOCUS</h3>
+            <p class="small">통제권 확보 → 전국 확산 → GitOps 고도화</p>
+          </div>
+          <div class="card tinted" style="margin:0">
+            <div class="label">CASE 02</div>
+            <h3>KRIS</h3>
+            <p class="small">직접 개발 → 설계·리딩 중심 전환</p>
+          </div>
+          <div class="card tinted" style="margin:0">
+            <div class="label">CASE 03</div>
+            <h3>맵픽 SaaS</h3>
+            <p class="small">기획의 언어를 제품 기능으로 연결</p>
+          </div>
+          <div class="card tinted" style="margin:0">
+            <div class="label">CASE 04</div>
+            <h3>Kubernetes GitOps</h3>
+            <p class="small">모호한 과제를 작동하는 PoC로 검증</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer"><span>이성준 · Backend Engineer / Technical PL</span><span>01 / 06</span></div>
+  </section>
+
+  <section class="page pad">
+    <div class="kicker">Case 01 · Focus Internalization</div>
+    <h2>인계 실패 상태의 시스템을<span class="accent"> 실행 가능한 운영 구조</span>로<br>되돌리다</h2>
+    <p class="callout" style="margin-top: 30px;">완벽한 구조를 먼저 만들지 않았습니다. 소스와 배포의 통제권을 먼저 확보하고, 실제 운영이 가능한 상태를 만든 뒤 단계적으로 부채를 상환했습니다.</p>
+
+    <div class="split">
+      <div class="sidebar">
+        <div class="label">Project Snapshot</div>
+        <div class="side-stat">
+          <div class="num">22일</div>
+          <div class="txt">인계 후 기본 배포 체계 재구축</div>
+        </div>
+        <div class="side-stat">
+          <div class="num">8센터</div>
+          <div class="txt">전국 확산 운영을 지원한 구조</div>
+        </div>
+        <div class="side-stat">
+          <div class="num">3단계</div>
+          <div class="txt">통제권 확보 → 확산 → 고도화</div>
+        </div>
+        <div class="side-stat">
+          <div class="txt"><b>Direct</b> · GitLab/Harbor/Runner/초기 kubectl 배포 기반 구축<br><b>Lead</b> · ArgoCD 기반 통합 고도화
+            설계·리딩</div>
+        </div>
+      </div>
+      <div>
+        <div class="columns">
+          <div class="box">
+            <div class="label">Problem</div>
+            <h4>형상관리·CI/CD·문서 부재</h4>
+            <p class="small">외주 개발 중단 후 인계된 시스템은 로컬 빌드와 수동 배포에 의존하고 있었습니다.</p>
+          </div>
+          <div class="box">
+            <div class="label">Decision</div>
+            <h4>운영 가능한 통제권부터 확보</h4>
+            <p class="small">소스 이관, GitLab, Harbor, Runner 기반 CI를 먼저 세워 개발 측 배포 경로를 복구했습니다.</p>
+          </div>
+        </div>
+        <div class="timeline">
+          <div class="step">
+            <div class="n">1</div>
+            <h4>Recover</h4>
+            <p>소스코드 사내 이관, 형상관리 및 CI 연결, kubectl 배포 체계 구성</p>
+          </div>
+          <div class="step">
+            <div class="n">2</div>
+            <h4>Expand</h4>
+            <p>센터별 차이를 감안해 소스·CI 분리로 전국 8개 센터 확산</p>
+          </div>
+          <div class="step">
+            <div class="n">3</div>
+            <h4>Refine</h4>
+            <p>안정화 이후 소스·CI 통합, ArgoCD Application 분리 구조 제안</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="impact case01-impact">
+      <div class="item">
+        <div class="label">Trade-off</div><strong>단기 중복 감수</strong>
+        <div class="small">센터별 분리 구조는 부채였지만, 당시에는 확산 속도와 운영 안정성이 우선이었습니다.</div>
+      </div>
+      <div class="item">
+        <div class="label">Impact</div><strong>실운영 지속</strong>
+        <div class="small">약 1년간 전국센터 운영을 지탱하는 현실적 구조를 마련했습니다.</div>
+      </div>
+      <div class="item">
+        <div class="label">Leadership</div><strong>고도화 리딩</strong>
+        <div class="small">이후 통합과 ArgoCD 전환은 본인이 설계·리딩하고 파트원이 실제 적용했습니다.</div>
+      </div>
+    </div>
+
+    <div class="footer"><span>CASE 01 · FOCUS INTERNALIZATION</span><span>02 / 06</span></div>
+  </section>
+
+  <section class="page pad">
+    <div class="kicker">Case 02 · KRIS Research Information System</div>
+    <h2>직접 개발자에서 <span class="accent">설계·리딩 중심의 PL</span>로<br>역할을 확장하다</h2>
+    <div class="quote-block">
+      <div class="title">핵심 포인트</div>
+      <p>KRIS는 외주 인계 시스템을 내재화하면서, 프로젝트 단계에 따라 <b>직접 구현 비중</b>과 <b>설계·리딩 비중</b>을 조정한 대표 사례입니다. 제가 직접 만든 영역과 팀원이 구현한 영역을
+        명확히 구분하면서도, 설계와 기술 판단에 대한 책임은 계속 유지했습니다.</p>
+    </div>
+    <div class="grid2" style="margin-top:5mm">
+      <div class="card tinted">
+        <div class="label">Phase 1 · Direct Build</div>
+        <h3>초기 정상화와 핵심 기능 직접 구축</h3>
+        <ul class="list-plain">
+          <li>성과관리 설계 및 CRUD</li>
+          <li>협약 리팩토링</li>
+          <li>관리자 대시보드 기획·화면설계·백/프론트</li>
+          <li>권한·보안 정비</li>
+        </ul>
+      </div>
+      <div class="card teal">
+        <div class="label">Phase 2 · Lead Build</div>
+        <h3>설계 100% 유지, 구현은 팀으로 확장</h3>
+        <ul class="list-plain">
+          <li>분석실 예약 업무 흐름·DB 설계</li>
+          <li>SSE 실시간 알림 설계·리드</li>
+          <li>백엔드 개발자 구현 리뷰·지시</li>
+          <li>필요 시 급한 영역 직접 보완</li>
+        </ul>
+      </div>
+    </div>
+    <div class="process">
+      <div class="node">
+        <div class="ix">01</div>
+        <h5>인계</h5>
+        <p>정상 동작하지 않는 코드와 수동 배포 환경에서 시작</p>
+      </div>
+      <div class="node">
+        <div class="ix">02</div>
+        <h5>정상화</h5>
+        <p>도메인 구조를 재정리하고 핵심 기능을 직접 세움</p>
+      </div>
+      <div class="node">
+        <div class="ix">03</div>
+        <h5>역할 전환</h5>
+        <p>설계는 계속 책임지고 구현은 팀 단위로 확장</p>
+      </div>
+      <div class="node">
+        <div class="ix">04</div>
+        <h5>운영</h5>
+        <p>2025년 9월 production 오픈 이후 운영·고도화 중</p>
+      </div>
+    </div>
+    <div class="metric-strip" style="margin-top:6mm; grid-template-columns:1fr 1fr 1fr 1fr">
+      <div class="metric">
+        <div class="label">Architecture</div><strong>업무 흐름</strong>
+        <div class="small">공고 → 접수 → 협약 → 성과관리</div>
+      </div>
+      <div class="metric">
+        <div class="label">Ownership</div><strong>설계 100%</strong>
+        <div class="small">직접 구현과 팀 구현 경계를 명확히 관리</div>
+      </div>
+      <div class="metric">
+        <div class="label">Realtime</div><strong>SSE</strong>
+        <div class="small">실시간 알림은 설계·리드 후 팀원이 구현</div>
+      </div>
+      <div class="metric">
+        <div class="label">Outcome</div><strong>운영 중</strong>
+        <div class="small">production 오픈 후 현재 고도화 단계</div>
+      </div>
+    </div>
+    <div class="footer"><span>CASE 02 · KRIS</span><span>03 / 06</span></div>
+  </section>
+
+  <section class="page pad case03-page">
+    <div class="kicker">Case 03 · Mappick SaaS</div>
+    <h2>기획의 언어를 <span class="accent">제품 기능과 사용자 흐름</span>으로<br>구현하다</h2>
+
+    <p class="callout case03-callout">맵픽은 GIS 엔진을 새로 만드는 프로젝트가 아니라, 기존 Core 위에 고객이 실제로 쓰는 비즈니스 레이어를 만드는 프로젝트였습니다.</p>
+
+    <div class="case03-layout">
+      <div class="case03-capabilities">
+        <div class="card">
+          <div class="label">Business Layer</div>
+          <h3>구독·기관 설정</h3>
+          <p class="small">서비스 신청·상태·내역을 화면과 API로 연결했습니다. 실결제 연동은 본인 범위가 아니었습니다.</p>
+        </div>
+        <div class="card">
+          <div class="label">Access Control</div>
+          <h3>부서별 권한</h3>
+          <p class="small">기관 간 분리가 아니라, 한 기관 내부에서 부서별 자료 접근을 나누는 서비스 권한을 담당했습니다.</p>
+        </div>
+        <div class="card">
+          <div class="label">Experience</div>
+          <h3>대시보드와 문의</h3>
+          <p class="small">대시보드, 리뷰, 문의 기능을 통해 GIS Core가 아닌 서비스 경험 층을 구축했습니다.</p>
+        </div>
+        <div class="card">
+          <div class="label">Collaboration</div>
+          <h3>개발PL</h3>
+          <p class="small">신입 개발자 2명, 퍼블리셔 1명과 협업하며 메인개발자·개발PL로 실행 기준을 잡았습니다.</p>
+        </div>
+      </div>
+
+      <div class="card dark case03-role">
+        <div class="label">Team & Delivery</div>
+        <h3>서비스기획팀의<br>풀스택 메인개발자</h3>
+        <p class="small">기획·설계·핵심 개발을 맡았고, 상용 오픈 이후에도 서비스 고도화가 이어졌습니다.</p>
+        <div class="mini-bars"><span style="height:7mm"></span><span style="height:11mm"></span><span style="height:15mm"></span><span style="height:18mm"></span></div>
+        <p class="small role-note">기획과 기술 사이의 모호한 요구사항을 실제 제품 정책으로 바꾸는 경험은 다우기술 프로젝트개발팀의 신규 웹서비스 개발과도 연결됩니다.</p>
+      </div>
+    </div>
+
+    <div class="card tinted case03-boundary">
+      <div class="label">Boundary</div>
+      <p class="small">GIS Core 엔진, 공개데이터 연계, 기관별 DB 분리는 본인 책임 범위가 아니었습니다. 대신 Core 위의 비즈니스 정책, 권한, 구독 흐름을 제품 기능으로 만드는 역할에 집중했습니다.</p>
+    </div>
+
+    <div class="footer" style="position:absolute !important; left:16mm !important; right:16mm !important; bottom:7mm !important; margin:0 !important; transform:none !important;"><span>CASE 03 · MAPPICK SAAS</span><span>04 / 06</span></div>
+  </section>
+
+  <section class="page pad case04-page">
+    <div class="kicker">Case 04 · Kubernetes GitOps PoC</div>
+    <h2>정답이 없는 과제에서 <span class="accent">작동하는 PoC</span>를<br>먼저 만든다</h2>
+
+    <div class="case04-hero-grid">
+      <div class="card dark case04-overview">
+        <div class="label">Why This Matters</div>
+        <h3>대민서비스용 실행 기반을<br>직접 검증</h3>
+        <p class="small">사내에 기존 FOCUS 전용 Kubernetes는 있었지만, 대민서비스용 표준 기반은 별도로 필요했습니다. 4대 물리서버에 Rocky Linux 기반 클러스터를 구성하고 GitOps 구조를 직접 세웠습니다.</p>
+        <div class="tech-bands">
+          <span class="band" style="background:rgba(255,255,255,.12)">Kubernetes</span>
+          <span class="band" style="background:rgba(255,255,255,.12)">ArgoCD</span>
+          <span class="band" style="background:rgba(255,255,255,.12)">Envoy Gateway</span>
+          <span class="band" style="background:rgba(255,255,255,.12)">Prometheus / Loki</span>
+        </div>
+      </div>
+
+      <div class="card case04-flow-card">
+        <div class="label">Bootstrap Flow</div>
+        <div class="process case04-flow">
+          <div class="node">
+            <div class="ix">01</div>
+            <h5>Cluster</h5>
+            <p>4대 물리서버 기반 Kubernetes 구성</p>
+          </div>
+          <div class="node">
+            <div class="ix">02</div>
+            <h5>Gateway API / CRD</h5>
+            <p>필수 리소스와 부트스트랩 순서 정리</p>
+          </div>
+          <div class="node">
+            <div class="ix">03</div>
+            <h5>ArgoCD App-of-Apps</h5>
+            <p>infrastructure / platform / monitoring / application 분리</p>
+          </div>
+          <div class="node">
+            <div class="ix">04</div>
+            <h5>KRIS Dev Runtime</h5>
+            <p>실제 개발 서비스를 기동해 검증</p>
+          </div>
+        </div>
+        <div class="case04-flow-note">
+          <div class="title">Bootstrap Principles</div>
+          <div class="points">
+            <div class="point"><b>Infra</b> · 클러스터와 필수 리소스를 먼저 확보</div>
+            <div class="point"><b>Order</b> · 설치 순서와 의존관계를 문서화</div>
+            <div class="point"><b>Layer</b> · infra/platform/monitoring/app 계층 분리</div>
+            <div class="point"><b>Proof</b> · 실제 서비스 기동으로 PoC 유효성 검증</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="impact case04-impact">
+      <div class="item">
+        <div class="label">GitOps</div><strong>재현성</strong>
+        <div class="small">Git을 클러스터 선언 상태의 정본으로 두어 변경 이력과 롤백 기준을 확보했습니다.</div>
+      </div>
+      <div class="item">
+        <div class="label">Scope</div><strong>개발환경 적용</strong>
+        <div class="small">정식 TF·승인 전 단계이므로 production 완성이 아니라 개발환경 적용까지 검증된 상태로 표현합니다.</div>
+      </div>
+      <div class="item">
+        <div class="label">Ownership</div><strong>단독 구축</strong>
+        <div class="small">부트스트랩, GitOps 구조, 모니터링 구성까지 직접 설계·구축했습니다.</div>
+      </div>
+    </div>
+
+    <div class="footer" style="position:absolute !important; left:16mm !important; right:16mm !important; bottom:7mm !important; margin:0 !important; transform:none !important;"><span>CASE 04 · KUBERNETES GITOPS POC</span><span>05 / 06</span></div>
+  </section>
+
+  <section class="page pad">
+    <div class="kicker">Why Me · Summary</div>
+    <h2>다우기술 프로젝트개발팀에<br>맞는 이유를 <span class="accent">한 페이지로 정리</span></h2>
+    <div class="summary-grid final-summary-grid" style="margin-top:4mm">
+      <div class="final-summary-left">
+        <div class="score-cards">
+          <div class="score">
+            <div class="label">PM / PL</div>
+            <h4>단순 일정 관리형이 아님</h4>
+            <p>총무 MIS 총괄 PL, KRIS 설계·리딩, 맵픽 개발PL처럼 설계와 구현 경계를 직접 책임졌습니다.</p>
+          </div>
+          <div class="score">
+            <div class="label">Web Application</div>
+            <h4>BE/FE를 모두 이해</h4>
+            <p>Spring Boot, NestJS, React, Vue, Next.js 기반으로 업무·서비스 웹애플리케이션을 운영까지 연결했습니다.</p>
+          </div>
+          <div class="score">
+            <div class="label">R&D / PoC</div>
+            <h4>모호함을 검증 가능한 구조로</h4>
+            <p>FOCUS 재건과 Kubernetes GitOps PoC처럼 기술적 불확실성이 큰 과제를 실제 구조로 바꿨습니다.</p>
+          </div>
+          <div class="score">
+            <div class="label">Business Collaboration</div>
+            <h4>기획의 언어를 기술로 번역</h4>
+            <p>업무부서·서비스기획과 협의하며 요구사항을 기능 목록이 아닌 시스템 구조로 정리해 왔습니다.</p>
+          </div>
+        </div>
+        <div class="quote-block" style="margin-top:5mm">
+          <div class="title">Working Principle</div>
+          <p><b>1) 문제와 경계를 먼저 정의하고, 2) 작동 가능한 상태를 먼저 만들며, 3) 직접 구현과 리딩의 책임을 구분한다.</b> 이 세 가지 원칙이 제가 프로젝트를 리딩할 때 반복하는
+            방식입니다.</p>
+        </div>
+      </div>
+      <div class="final-summary-right">
+        <div class="card dark" style="min-height:145mm">
+          <div class="label">Next Step for Daou Tech</div>
+          <h3 style="color:#fff; font-size:17pt; margin-bottom:3mm">신규 프로젝트의 모호함을<br>개발 가능한 구조로 정리하는 역할</h3>
+          <p class="small">다우기술 프로젝트개발팀은 기술적 난도가 높고, 신규성이 크며, 사업·기획과 협업이 중요한 과제를 맡습니다. 제 경력의 강점 역시 그 지점에 있습니다.</p>
+          <div style="margin-top:4mm; border-top:1px solid rgba(255,255,255,.14); padding-top:4mm">
+            <div class="label">Available Contribution</div>
+            <ul class="list-plain" style="color:#fff">
+              <li style="color:#e5edf7">요구사항을 시스템 경계와 구조로 구체화</li>
+              <li style="color:#e5edf7">직접 개발과 팀 리딩을 병행하는 Hands-on PL</li>
+              <li style="color:#e5edf7">PoC를 통해 기술 리스크를 먼저 검증</li>
+              <li style="color:#e5edf7">운영 가능한 배포·관측 기반까지 고려한 설계</li>
+            </ul>
+          </div>
+          <div
+            style="margin-top:17mm; padding:4mm; background:rgba(255,255,255,.08); border-radius:12px; border:1px solid rgba(255,255,255,.12)">
+            <div class="label">AI-assisted Development</div>
+            <p class="small">홈페이지 연계 API 구현 과정에서 AI 도구를 활용했습니다. 새로운 도구는 작은 검증에서 시작해 재현 가능한 개발 기준으로 확장하는 방식으로 적용하고자 합니다.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer"><span>SUMMARY · DAOU TECH FIT</span><span>06 / 06</span></div>
+  </section>
+
+</body>
+
+</html>
